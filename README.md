@@ -259,6 +259,119 @@ while palabraPrimera <= len(frase):
             
 print(f"La longitud de la primera palabra de tu frase es de {palabraPrimera} caracteres") 
 
+## LISTAS ##
+'''
+1. Escriba un programa que multiplique por 5 todos los elementos de una lista, creando una nueva lista con el resultado.
+2. Escriba un programa que guarde en una nueva lista los valores contenidos en las posiciones impares de la lista inicial.
+3. Escriba un programa que pida un número, y a continuación escriba la lista de todos los divisores de ese número (incluido el 1 y él mismo).
+4. Escriba un programa que pida el número de palabras que va a contener una lista. Después, el usuario introducirá tantas palabras como ha dicho que iba a tener. Finalmente el programa le pedirá al usuario una palabra y comprobará si está incluida en la lista creada.
+5. Escribir un programa que almacene en una lista las asignaturas de un curso (por ejemplo Matemáticas, Lengua, Física, Química, Historia e Inglés),le pregunte al usuario la nota que ha sacado en cada asignatura y elimine de la lista aquellas asignaturas que ha aprobado. Al final, el programa debe mostrar por pantalla las asignaturas que el usuario tiene que repetir.
+6. Escribir un programa que le pida al usuario una frase y devuelva por pantalla el número de veces que aparece cada vocal.
+'''
+#1
+lista = [1, 3, 5, 2]
+listaX5 = []
+for i in range(len(lista)):
+    lista[i] = lista[i] * 5
+    listaX5.append(lista[i])
+print(listaX5)
+#2
+lista = [1, 4, 8, 9, 2]
+listaIndImpar = []
+for i in range(len(lista)):
+    if i % 2 != 0:
+        listaIndImpar.append(lista[i])
+print(listaIndImpar)
+#3
+numero = int(input("Introduce un número: "))
+divisores = []
+for i in range(1, numero + 1):
+    if numero % i == 0:
+        divisores.append(i)
+print(divisores)
+#4
+nPalabras = int(input("¿Cuántas palabras ha de tener la lista a crear? "))
+lPalabras = []
+for i in range(nPalabras):
+    palabras = str(input("Introduce tantas palabras como hayas solicitado: "))
+    lPalabras.append(palabras)
+print(lPalabras)
+#5
+asignaturas = ["matematicas", "lengua", "fisica", "quimica", "ingles"]
+print(f"Éstas son tus asignaturas: {asignaturas}")
+nAprobadas = int(input("¿Cuántas asignaturas has aprobado?"))
+suspendidas = ["matematicas", "lengua", "fisica", "quimica", "ingles"]
+for i in range(nAprobadas):
+    aprobadas = str(input("Introduce una materia que hayas aprobado: "))
+    suspendidas.remove(aprobadas)
+print(f"Has suspendido: {suspendidas}")
+#6
+vocales = ["a", "e", "i", "o", "u", "á", "é", "í", "ó", "ú"]
+frase = str(input("Introduce una frase para contabilizar sus vocales: "))
+for i in range(len(frase)):
+    if frase[i] in vocales:
+        cuentaVocales = frase.count(frase[i])
+print(f"La frase tiene {cuentaVocales} vocales")
+
+## TUPLAS ##
+'''
+1. Escriba un programa que cambie el primer valor de la tupla por un 1.
+2. Escriba un programa que cuente cuántas veces aparece un nombre en una tupla.
+tupla = ("Ana", "Pedro", "María", "Ana", "Juan", "ana")
+3. Escriba un programa que analice la tupla anterior de nombres y devuelva solo los elementos que tengan 5 caracteres o más.
+4. Tenemos en una tupla guardadas una serie de recetas. En cada posición de la tupla tenemos una lista en la que guardamos el nombre de la comida, los gramos de aceite, los pellizcos de sal neesarios y los minutos que hay que cocinarlo. Escriba un programa que nos pida la comida que queremos cocinar y nos devuelva el aceite, la sal y el tiempo necesario de cocinado.
+5. Tenemos en una tupla a los empleados de nuestra tienda, junto al número de televisiones que vendieron el día anterior y el importe total de sus ventas. Escriba un programa que nos devuelva el nombre del empleado que vendió más televisiones, el nombre del empleado que más facturó el día anterior y el nombre del empleado con el peor ticket medio del día (ticket medio = importe/numero).
+'''
+#1
+tupla = ("v" ,1, 2, "a")
+tupla = list(tupla)
+tupla[0] = 1
+print(tuple(tupla))
+#2
+nombres = ("Alejandro", "Richi", "Solete", "Paco", "Solete", "Paco", "Paco")
+print(nombres)
+nombre = str(input("Elige un nombre del listado: "))
+nombre = nombre.capitalize()
+nombres = list(nombres) 
+aparicionesNombre = 0
+for i in nombres:
+    if i == nombre:
+        aparicionesNombre += 1
+print(f"El nombre {nombre} aparece {aparicionesNombre} veces")
+#3
+nombres = ("Alejandro", "Richi", "Solete", "Paco", "Solete", "Paco", "Paco")
+# Método si queremos presentarlo en formato tupla
+nombresLen5 = [] 
+for i in nombres:
+    if len(i) >= 5:
+        nombresLen5.append(i)
+nombresLen5 = tuple(nombresLen5)
+print(f"Los nombres con 5 caracteres o más del listado son {nombresLen5}")
+# Método si queremos presentarlo en prints sueltos
+for i in nombres:
+    if len(i) >= 5:
+        print(i, " ")
+#5
+empleados = [("Jorge", 2, 700), ("Pablo", 4, 850), ("Rober", 5, 1800)]
+ventas_count = [0, 0, 0]
+importes_count = [0, 0, 0]
+for i in range(3):
+    for j in range(3):
+        if empleados[i][1] > empleados[j][1]:
+            ventas_count[i] += 1
+        if empleados[i][2] > empleados[j][2]:
+            importes_count[i] += 1
+ventas = [empleados[i][0] for i, v in enumerate(ventas_count) if v == max(ventas_count)]
+importes = [empleados[i][0] for i, v in enumerate(importes_count) if v == max(importes_count)]
+ticket_medio = [empleados[i][2] / empleados[i][1] for i in range(3)]
+peor_ticket_medio = empleados[ticket_medio.index(min(ticket_medio))][0]
+ganador_ticket_medio = empleados[ticket_medio.index(max(ticket_medio))][0]
+print(f"El empleado con más ventas ha sido {', '.join(ventas)}, el que más ha recaudado ha sido {', '.join(importes)}, el que ha logrado el mayor ticket medio {ganador_ticket_medio}, y el que peor ticket medio ha conseguido ha sido {peor_ticket_medio}")    
+
+
+
+
+
 
 
 
