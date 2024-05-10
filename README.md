@@ -3,8 +3,7 @@ FUNDAMENTOS DEL LENGUAJE DE PROGRAMACIÓN PYTHON
 ¡ Bienvenidos a mi propio repositorio de código puramente en Python dónde recogeremos un paso a paso a seguir para aprender éste lenguaje de programación mediante ejercicios prácticos resueltos
 en código 100% en español !
 
-Si estás aprendiendo Python o quieres hacerlo, éste repositorio es para tí. Aquí encontrarás ejercicios de todas las partes que para mí componen los fundamentos del lenguaje.
-¡ Más de 40 ejercicios de Python resueltos para aprender cada uno de los temas fundamentales para adentrarte en éste maravilloso lenguaje !
+Si estás aprendiendo Python o quieres hacerlo, éste repositorio es para tí. Aquí encontrarás ejercicios de todas las partes que para mí, componen los fundamentos del lenguaje.
 
 Glosario:
   - Variables y Tipos de Datos (Próximamente)
