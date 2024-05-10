@@ -1,0 +1,88 @@
+# CONDICIONALES #
+
+'''
+1. Escribir un programa que reciba un número y muestre si es múltiplo de 3.
+2. Escribir un programa que reciba un número e imprima diferentes salidas, en base a las siguientes condiciones:
+*   El número es negativo.
+*   El número es igual a 0.
+*   El número está entre 0 y 5 o es mayor que 30.
+*   El número está entre 5 y 30.
+3. Escriba un programa que pida dos números y que conteste cuál es el menor y cuál el mayor o que escriba que son iguales.
+4. Escriba un programa que pida un número par y, si no es correcto, muestre un aviso. En caso de ser correcto, le pedirá un número impar. En caso de que no sea correcto, mostrará un aviso.
+5. Los alumnos de un curso se han dividido en dos grupos A y B de acuerdo al sexo y el nombre. El grupo A esta formado por las mujeres con un nombre anterior a la M y los hombres con un nombre posterior a la N y el grupo B por el resto. Escribir un programa que pregunte al usuario su nombre y sexo, y muestre por pantalla el grupo que le corresponde.
+6. Escriba un programa que pida el año actual y un año cualquiera, y nos muestre por pantalla cuántos años han pasado desde ese año o cuántos años faltan para llegar a ese año.
+'''
+
+Ejercicio 1
+
+MultDe3 = int(input("Introduce un número: "))
+if MultDe3 % 3 == 0:
+    print(f"{MultDe3} es múltiplo de 3")
+else:
+    print(f"{MultDe3} no es múltiplo de 3")
+
+Ejercicio 2
+
+DifSalidas = int(input("Introduce un número: "))
+if DifSalidas < 0:
+    print("Es negativo")
+elif DifSalidas == 0:
+    print("Es igual a 0")
+elif DifSalidas > 0 and DifSalidas < 5 or DifSalidas > 30:
+    print("Está entre 0 y 5 o es mayor que 30")
+else:
+    print("Está entre 5 y 30")
+
+Ejercicio 3
+
+Num1 = int(input("Introduce un número: "))
+Num2 = int(input("Introduce otro número: "))
+if Num1 > Num2:
+    print("El primer número introducido es mayor que el segundo")
+elif Num1 < Num2:
+    print("El segundo número númeor introducido es mayor que el primero")
+else:
+    print("Los dos números introducidos son iguales")
+
+Ejercicio 4
+
+par = int(input("Introduce un número par: "))
+impar = int(input("Introduce un número impar: "))
+if par % 2 == 0:
+    print("Correcto! El número introducido es par")
+    impar
+    if impar % 2 != 0:
+        print("Correcto! El número introducido es impar")
+    else:
+        print("Vuelve a intentar introducir un número impar...")       
+else:
+    print("Vuelve a intentar introducir un número par...")
+
+Ejercicio 5
+
+print("Bienvenido al curso de Python de DELACUESTA! Contesta las preguntas para saber tu grupo de clase")
+nombre = str(input("Introduce tu nombre: "))
+sexo = str(input("Introduce tu sexo (M o F): "))
+if sexo.lower() == "m" and nombre.lower()[0] in "nñrstuvwxyz":
+    print(f"{nombre.capitalize()}, perteneces al Grupo A")
+elif sexo.lower() == "f" and nombre.lower()[0] in "abcdefghijklm":
+    print(f"{nombre}, perteneces al Grupo A")
+elif sexo.lower() == "f" and nombre.lower()[0] in "nñrstuvwxyz":
+    print(f"{nombre}, perteneces al Grupo B")
+else:
+    print(f"{nombre}, perteneces al Grupo B")
+
+Ejercicio 6
+
+NumActual = int(input("Introduce el año en el que nos encontramos: "))
+NumCualquiera = int(input("Introduce un año cualquiera de la historia pasada o futura: "))    
+if NumActual > NumCualquiera:
+    pasado = (NumActual - NumCualquiera)
+    print(f"Han pasado {pasado} años desde entonces")
+elif NumActual < NumCualquiera:
+    futuro = (NumCualquiera - NumActual)
+    print(f"Faltan {futuro} años para llegar a esa fecha")
+else:
+    print("Son el mismo año")
+
+
