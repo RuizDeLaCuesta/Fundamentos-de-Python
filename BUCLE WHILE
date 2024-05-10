@@ -1,0 +1,155 @@
+## BUCLE WHILE ##
+
+'''
+1. Escriba un programa que le pregunte al usuario si quiere continuar en el programa o no (S o N). En el momento que conteste que no (N), el programa finalizará.
+2. Escriba un programa en el que el usuario introduzca números hasta que introduzca un número negativo. En ese momento, mostrar el valor máximo introducido, mínimo y la suma de todos los valores introducidos.
+3. Escriba un programa que seleccione un número aleatorio entre 0 y 10, y que el usuario tenga que adivinarlo. Nota: usar random.
+4. Escriba un programa que pida al usuario una contraseña y vuelva a solicitarla hasta que las dos contraseñas coincidan. El programa finalizará cuando la adivine.
+5. Escriba un programa que simule una hucha. El programa solicitará un objetivo de ahorro. Después, el usuario irá introduciendo cantidades que ha ahorrado. El programa finalizará cuando se haya cumplido el objetivo de ahorro.
+6. Escriba un programa que pida al usuario una frase y devuelva el número de caracteres que tiene la primera palabra de la frase introducida.
+'''
+
+Ejercicio 1
+
+SoN = str(input("¿Quieres continuar con el programa? Responde con S o N."))
+while SoN.upper() != "N":
+    if SoN.upper() not in "NS":
+        print(f"Porfavor, contesta con N o S.")
+        SoN = str(input("¿Quieres continuar con el programa? Responde con S o N."))
+    else:
+        print(f"De acuerdo!")
+        SoN = str(input("¿Quieres continuar con el programa? Responde con S o N."))
+else:
+    print("El programa ha finalizado, adios!")
+
+Ejercicio 2
+
+numeros = int(input("Introduce un numero: "))
+listadoNumeros = [ ]
+sumaListado = 0
+while numeros >= 0:
+    listadoNumeros.append(numeros)
+    sumaListado += numeros
+    numeros = int(input("Introduce otro número: "))
+else:
+    listadoNumeros.sort()
+    print("Valor no válido, el programa ha finalizado")
+    print(f"{listadoNumeros[-1]} es el valor máximo, {listadoNumeros[0]} el mínimo y {sumaListado} la suma")
+
+Ejercicio 3 (Juego de Adivina el Número)
+
+import random
+numero = int(input("Adivina el número (0-10): "))
+numeroRandom = random.randint(0, 10)
+while numero != numeroRandom:
+    if numero > numeroRandom:
+        print("Es más pequeño")
+        numero = int(input("Adivina el número (0-10): "))
+    else:
+        print("Es más grande")
+        numero = int(input("Adivina el número (0-10): "))
+else:
+    print(f"Has acertado! El número era {numeroRandom}")
+
+Ejercicio 4 (Generador de Contraseñas Básico)
+
+'Dificultad Extra: Pídele que la contraseña a crear sea segura (parámetros seguros)'
+
+contraseña = str(input("Introduce una contraseña: "))
+
+longitudContraseña = "12345678"
+while len(contraseña) < len(longitudContraseña):
+    print("La contraseña ha de tener un mínimo de 8 caracteres")
+    contraseña = str(input("Introduce una contraseña: "))
+else:
+    seguridad = "*+-,.?¿¡!_"
+    if contraseña not in seguridad:
+        print("Haz una contraseña segura, pon al menos un carácter seguro (*+-,.?¿¡!_)")
+        contraseña = str(input("Introduce una contraseña: "))
+    else:
+        print("Tu contraseña cumple los requisitos")
+    
+    contraseñaRepeat = str(input("Vuelve a escribir tu contraseña: "))
+
+    while contraseña != contraseñaRepeat:
+      print("Las contraseñas no coinciden")
+      contraseñaRepeat = str(input("Vuelve a escribir tu contraseña: "))
+    else:
+      print("Las contraseñas coinciden, tu contraseña ha sido guardada correctamente")
+      verContraseña = str(input("Quieres ver tu contraseña (Si / No): "))
+      if verContraseña.capitalize() == "Si":
+        print(f"Tu contraseña se ha guardado como: {contraseña}")
+      else:
+        breakpoint
+
+Ejercicio 5 (Plan de Ahorro Financiero Básico)
+
+meta = int(input("Define tu meta de ahorro: "))
+ahorrado = 0
+while ahorrado < meta:
+    intenciónIngreso = str(input("¿Quieres hacer un ingreso a la cuenta ahorro? (Si / No): "))
+    if intenciónIngreso.capitalize() == "Si": 
+        ingreso = int(input("¿Cuánto quieres ingresar? "))
+        ahorrado += ingreso
+        print(f"Tu cantidad total ahorrada es de {ahorrado}/{meta}, te quedan {meta - ahorrado} para cumplir tu objetivo")
+    else:
+        print(f"De acuerdo! Tu ahorro total es de {ahorrado}/{meta}")
+        break
+else:
+    print("Felicidades! Has alcanzado tu meta de ahorro")
+    if ahorrado == meta:
+        print(f"Tienes ahorrado el importe exacto de tu meta: {ahorrado} / {meta}")
+    else:
+        print(f"Has superado con creces tu meta de ahorro: {ahorrado} / {meta}, ahorraste {ahorrado - meta} de más")
+
+Ejercicio 6
+
+frase = str(input("Introduce una frase de la menos dos palabras: "))
+palabraPrimera= 0
+while palabraPrimera <= len(frase):
+    for i in frase:
+        if i != ",.:;":
+           palabraPrimera += 1
+        elif i == " ":
+            break
+print(f"La longitud de la primera palabra de tu frase es de {palabraPrimera} caracteres") 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+        
+
+
+
+ 
+
+
+
+
+
+
+
+
+    
+
+
