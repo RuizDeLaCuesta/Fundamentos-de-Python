@@ -1,0 +1,101 @@
+## BUCLE FOR ##
+
+'''
+1. Escribir un programa que nos pida un número mayor que 0 y nos devuelva todos los valores múltiplos de 5 menores que el valor introducido. Ejemplo:
+Valor introducido = 43
+Salida: 5 10 15 20 25 30 35 40
+2. Escribir un programa que reciba una frase y nos cuente el número de vocales que contiene.
+3. Escribir un programa que pida un número mayor que 1 y el programa nos diga si ese número es primo o no. Nota: número primo es aquel que solo es divisible entre 1 y entre sí mismo.
+4. Escribir un programa que pida una frase y nos diga si ha encontrado algún acento, algún signo de puntuación (punto, coma, punto y coma, guión o paréntesis) y algún espacio mediante un bucle for.
+5. Escribir un programa que reciba por teclado una cadena de texto y nos elimine los caracteres duplicadas, solo manteniendo la primera aparición. Ejemplo:
+Entrada: "Hola, amigos de clase."
+Salida: "Hola, migsdec."
+6. Escriba un programa al que le introduzcamos por teclado el tamaño de un tablero de ajedrez y nos devuelva cada posición del tablero en formato fila columna.
+1-1 1-2 1-3...
+2-1 2-2 2-3...
+'''
+
+Ejercicio 1
+
+MultDe5 = int(input("Introduce un número mayor que 0 para comprobar sus múltiplos de 5: "))
+if MultDe5 > 0:
+    for i in range(MultDe5):
+        if i % 5 == 0 and i != 0:
+            print(i)
+
+Ejercicio 2 (método primero)
+
+frase = str(input("introduce una frase para comprobar cuantas vocales que contiene: "))
+vocales = 0
+for i in frase.lower():
+    if i in "aeiouáéíóú":
+        vocales += 1
+print(f"La frase contiene {vocales} vocales")
+
+Ejercicio 2 (método segundo)
+
+frase2 = str(input("Introduce una frase para conocer el número de vocales que incluye: "))
+vocales = []
+for i in frase.lower():
+    if i in "aeiouáéíóú":
+        vocales.append(i)
+print(f"La frase contiene {len(vocales)} vocales")
+
+Ejercicio 3
+
+numero = int(input("Introduce un número mayor que 1 para comprobar si es primo: "))
+primo = True
+if numero >= 1:
+    for i in range(2, numero):
+        if numero % i == 0:
+            primo = False
+    if primo:
+        print(f"{numero} es primo")
+    else:
+        print(f"{numero} no es primo")
+
+Ejercicio 4
+
+Frase = str(input("Introduce una frase para contar todos su signos de puntuación: "))
+acentos = 0
+SignosPuntuación = 0
+espacios = 0
+for i in Frase:
+   if i in "áéíóú":
+      acentos += 1
+      continue
+   elif i in ":;.,¡¿!?":
+      SignosPuntuación += 1
+      continue
+   elif i in " ":
+      espacios += 1
+print(f"La frase contiene {acentos} acentos, {SignosPuntuación} signos de puntuación y {espacios} espacios")
+
+Ejercicio 5
+
+Frase2 = str(input("Introduce una frase y te la devuelvo sin caracteres duplicados: "))
+Frase2Nueva = ""
+for i in Frase2:
+    if i not in Frase2Nueva:
+        Frase2Nueva += i
+print(Frase2Nueva)
+
+Ejercicio 6
+
+tablero = int(input("Introduce el tamaño de tu tablero: ")) 
+for i in range(1, tablero + 1):
+    # i = filas iterables
+    secuenciaTablero = 0
+    for j in range(1, tablero + 1):
+        # j = columnas iterables
+        secuenciaTablero = str(i) + "-" + str(j)
+    print(secuenciaTablero)
+
+    
+
+
+
+
+        
+
+
